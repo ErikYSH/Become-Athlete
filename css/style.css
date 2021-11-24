@@ -1,0 +1,12 @@
+body {
+  /* background-color: #88ccd9; */
+  background-color: #fbf7f5;
+  font-family: "Roboto", sans-serif;
+}
+
+img{
+  max-width: 500px;
+}
+section {
+  padding: 0px 0px 50px 0px;
+}

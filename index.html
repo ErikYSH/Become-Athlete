@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Training Camp</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  </head>
+  <body>
+    <main id="game-page">
+      <div class="progress-bar">
+        <progress class="more-calorie" value="75" max="100"></progress>
+        <progress class="energy-lvl" value="25" max="100"></progress>
+        <progress class="workout-session" value="50" max="100"></progress>
+      </div>
+      <div class="avatar-img">
+        <!-- <img src="https://media.istockphoto.com/vectors/body-transformation-vector-id186953996?k=20&m=186953996&s=612x612&w=0&h=UM17c2endHrRkOMvEv2d2_yIzlkITTnJz4HV6OIwfEU=" alt=""> -->
+        <img
+          src="https://gta5modaz.b-cdn.net/wp-content/uploads/2020/06/cartooncat11.jpg"
+          alt=""
+        />
+      </div>
+      <!-- will add animation for each button -->
+      <div class="gameBtn">
+        <button id="bulking">Bulking</button>
+        <button id="pre-workout">Pre-workout</button>
+        <button id="get-fit">Get Fit</button>
+      </div>
+      <div class="advanceLvl">
+        <progress id="advance-bar" value="100" max="100"></progress>
+      </div>
+    </main>
+    <!-- Starting Page -->
+    <section id="start-page">
+      <div class="container" id="startPage">
+        <h1>Welcome to Training Camp</h1>
+        <form class="enterName">
+          <!-- Athlete Name: -->
+          <input type="text" class="name" placeholder="Athlete Name" />
+          <input type="submit" class="startbtn" value="Lets Get Training" />
+        </form>
+        <div class="consentForm">
+          <input type="checkbox" id="consent" />
+          <label for="consent">Consent, Terms & Conditions</label>
+        </div>
+        <div class="AYSForm">
+          <input type="checkbox" id="AYS" />
+          <label for="AYS">Are You Sure?</label>
+        </div>
+        <p>You are on the road to becoming a World Class Athlete ...</p>
+      </div>
+    </section>
+    <!-- You Lost Page -->
+    <section class="lost-page">
+      <div class="container" id="lostPage">
+        <h1>You have LOST All Your Muscles</h1>
+        <img src="https://i.ytimg.com/vi/q-4Q2gcmrNI/maxresdefault.jpg" alt="">
+        <form class="restart">
+          <p>Guess it's a dream after all ...</p>
+          <p>OR?</p>
+          <input type="submit" value="NVM LETS GO AGAIN" />
+        </form>
+      </div>
+    </section>
+    <!-- You Win Page -->
+    <section class="congrat-page">
+      <div class="container" id="congratPage">
+        <img src="/img/Buff cat - Imgur.jpg" alt="">
+        <p>You have reached the World Class Physique</p>
+      </div>
+    </section>
+  </body>
+</html>
