@@ -8,8 +8,13 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/css/style.css" />
-    <script src="/js/script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <script src="/js/script.js" defer></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <main id="game-page">
@@ -17,22 +22,30 @@
       <div id="main">
         <div id="prgressBar">
           <div id="container">
-            <div id="moreCalorie"></div>
+            <div id="moreCalorie">
+              <p class="prog-text">Calorie</p>
+            </div>
           </div>
           <div id="container">
-            <div id="energyLvl"></div>
+            <div id="energyLvl">
+              <p class="prog-text">Energy Lvl</p>
+            </div>
           </div>
           <div id="container">
-            <div id="workoutSession"></div>
+            <div id="workoutSession">
+              <p class="prog-text">Workout Session</p>
+            </div>
           </div>
         </div>
 
-        <div id="avatar-img">
-          <!-- <img src="https://media.istockphoto.com/vectors/body-transformation-vector-id186953996?k=20&m=186953996&s=612x612&w=0&h=UM17c2endHrRkOMvEv2d2_yIzlkITTnJz4HV6OIwfEU=" alt=""> -->
-          <img
-            src="https://gta5modaz.b-cdn.net/wp-content/uploads/2020/06/cartooncat11.jpg"
-            alt="skinny_cat"
-          />
+        <div id="avatarContainer">
+          <div id="avatar-img">
+            <!-- <img src="https://media.istockphoto.com/vectors/body-transformation-vector-id186953996?k=20&m=186953996&s=612x612&w=0&h=UM17c2endHrRkOMvEv2d2_yIzlkITTnJz4HV6OIwfEU=" alt=""> -->
+            <img
+              src="https://gta5modaz.b-cdn.net/wp-content/uploads/2020/06/cartooncat11.jpg"
+              alt="skinny_cat"
+            />
+          </div>
         </div>
       </div>
 
@@ -42,14 +55,17 @@
         <button id="pre-workout">Pre-workout</button>
         <button id="get-fit">Get Fit</button>
       </div>
+
       <div id="advanceLvl">
         <div id="advance-bar"></div>
-        <!-- <progress id="advance-bar" value="100" max="100"></progress> -->
+        <p>Beginner</p>
+        <p>Intermediate</p>
+        <p>Expert</p>
       </div>
     </main>
 
     <!-- Starting Page -->
-    <section id="start-page">
+    <div id="start-page">
       <div class="container" id="startPage">
         <h1>Welcome to Training Camp</h1>
         <form class="enterName">
@@ -67,10 +83,10 @@
         </div>
         <p>You are on the road to becoming a World Class Athlete ...</p>
       </div>
-    </section>
+    </div>
 
     <!-- You Lost Page -->
-    <section id="lost-page">
+    <div id="lost-page">
       <div class="container" id="lostPage">
         <h1>You have LOST All Your Muscles</h1>
         <img
@@ -83,13 +99,13 @@
           <input type="submit" value="NVM LETS GO AGAIN" />
         </form>
       </div>
-    </section>
+    </div>
     <!-- You Win Page -->
-    <section id="congrat-page">
+    <div id="congrat-page">
       <div class="container" id="congratPage">
         <img src="/img/Buff cat - Imgur.jpg" alt="" />
         <p>You have reached the World Class Physique</p>
       </div>
-    </section>
+    </div>
   </body>
 </html>
