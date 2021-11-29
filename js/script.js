@@ -17,7 +17,7 @@ let $workoutSession = $('#workoutSession')
 
 // Decresing Value Bars 
 
-function bulkingLvl (bars, speed){
+function CalorieLvl (bars, speed){
 builkingIntervalId =  setInterval(function(){
     athlete.bulking--;
     bars.css('width',athlete.bulking +"%");
@@ -26,9 +26,33 @@ builkingIntervalId =  setInterval(function(){
     }
 },speed);
 }
+CalorieLvl($moreCalorie, 150);
 
 
-bulkingLvl($moreCalorie, 150);
+function EnergyLvl(bars, speed){
+    preWorkoutIntervalId = setInterval(function(){
+        athlete.preWorkout--;
+        bars.css('width', athlete.preWorkout + "%");
+        if (athlete.preWorkout <= 0){
+            clearInterval(preWorkoutIntervalId)
+        }
+    },speed)
+}
+
+EnergyLvl($energyLvl,100)
+
+function WorkoutLvl (bars,speed){
+    getFitIntervalId = setInterval(function(){
+        athlete.getFit--;
+        bars.css('width', athlete.getFit + "%");
+        if (athlete.getFit<= 0){
+            clearInterval(getFitIntervalId)
+        }
+    }, speed)
+}
+
+
+WorkoutLvl($workoutSession, 80)
 
 
 
