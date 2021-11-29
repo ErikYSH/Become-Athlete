@@ -1,31 +1,50 @@
 
 
 
+// Global Variables 
+
+athlete = {
+    bulking: 100,
+    preWorkout: 100,
+    getFit : 100,
+
+};
 
 
+let $moreCalorie = $('#moreCalorie')
+let $energyLvl = $('#energyLvl')
+let $workoutSession = $('#workoutSession')
+
+// Decresing Value Bars 
+
+function bulkingLvl (bars, speed){
+builkingIntervalId =  setInterval(function(){
+    athlete.bulking--;
+    bars.css('width',athlete.bulking +"%");
+    if (athlete.bulking <= 0){
+        clearInterval(builkingIntervalId)
+    }
+},speed);
+}
 
 
+bulkingLvl($moreCalorie, 150);
 
 
 
 // Clicked Buttons
 
-$("#bulking").on('click', function(evt){
-    console.log("Clicked Bulking Btn")
+$("#bulking").on("click", function (evt) {
+  console.log("Clicked Bulking Btn");
 });
 
-$('#pre-workout').on('click', function(evt){
-    console.log("Clicked Pre-workout Btn")
+$("#pre-workout").on("click", function (evt) {
+  console.log("Clicked Pre-workout Btn");
 });
 
-$('#get-fit').on('click',function(evt){
-    console.log('Clicked Get-fit Btn')
+$("#get-fit").on("click", function (evt) {
+  console.log("Clicked Get-fit Btn");
 });
-
-
-
-
-
 
 //** Bulking Bar  */
 
