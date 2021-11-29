@@ -8,6 +8,25 @@
 
 
 
+// Clicked Buttons
+
+$("#bulking").on('click', function(evt){
+    console.log("Clicked Bulking Btn")
+});
+
+$('#pre-workout').on('click', function(evt){
+    console.log("Clicked Pre-workout Btn")
+});
+
+$('#get-fit').on('click',function(evt){
+    console.log('Clicked Get-fit Btn')
+});
+
+
+
+
+
+
 //** Bulking Bar  */
 
 function bulking() {
