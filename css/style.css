@@ -11,9 +11,10 @@ body {
 img {
   max-width: 500px;
 }
-section {
+
+/* section {
   padding: 0px 0px 50px 0px;
-}
+} */
 
 /* Game-Page CSS */
 #game-page {
@@ -68,6 +69,7 @@ section {
   width: 100%;
   height: 20px;
   background-color: green;
+  max-width: calc(100%-1em);
 }
 #workoutSession {
   width: 100%;
@@ -107,7 +109,7 @@ section {
   margin-left: auto;
   margin-right: auto;
   padding: 10px;
-  border-radius: 999px;
+  border-radius: 3em;
 }
 
 #advance-bar {
@@ -115,8 +117,7 @@ section {
   height: 100%;
   background-color: green;
   margin: 0px 0px 0px 0px;
-
-  border-radius: 999px;
+  border-radius: 3em;
 }
 
 /* Start Page CSS */

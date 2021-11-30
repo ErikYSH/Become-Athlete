@@ -22,6 +22,7 @@ function CalorieLvl (bars, speed){
 bulkingIntervalId =  setInterval(function(){
     athlete.bulking--;
     bars.css('width',athlete.bulking +"%");
+    bars.html(athlete.bulking + "%")
     if (athlete.bulking <= 0){
         clearInterval(bulkingIntervalId)
     }
@@ -34,6 +35,7 @@ function EnergyLvl(bars, speed){
     preWorkoutIntervalId = setInterval(function(){
         athlete.preWorkout--;
         bars.css('width', athlete.preWorkout + "%");
+        bars.html(athlete.preWorkout + "%");
         if (athlete.preWorkout <= 0){
             clearInterval(preWorkoutIntervalId)
         }
@@ -45,6 +47,7 @@ function WorkoutLvl (bars,speed){
     getFitIntervalId = setInterval(function(){
         athlete.getFit--;
         bars.css('width', athlete.getFit + "%");
+        bars.html(athlete.getFit + "%")
         if (athlete.getFit<= 0){
             clearInterval(getFitIntervalId)
         }
@@ -68,58 +71,49 @@ AdvanceLvl($advanceBar, 500);
 
 
 
+
+// Adding Value on Btn Click 
+function AddMoreCalLvlValue (add, amount){
+    athlete.bulking = athlete.bulking + amount;
+    add.css('width', athlete.bulking);
+    if(athlete.bulking >= 100){
+        athlete.bulking = 100;
+    }
+}
+
+function AddEnergyLvlValue (add, amount){
+    athlete.preWorkout = athlete.preWorkout + amount;
+    add.css('width', athlete.preWorkout);
+    if(athlete.preWorkout >= 100){
+        athlete.preWorkout = 100;
+    }
+}
+
+function AddWorkoutLvlValue (add, amount){
+    athlete.getFit = athlete.getFit + amount;
+    add.css('width', athlete.getFit);
+    if(athlete.getFit >= 100){
+        athlete.getFit = 100;
+    }
+}
+
+
+
 // Clicked Buttons
 
-$("#bulking").on("click", function (evt) {
+$("#bulking").on("click", function () {
   console.log("Clicked Bulking Btn");
+  AddMoreCalLvlValue($moreCalorie, 5)
 });
 
-$("#pre-workout").on("click", function (evt) {
+$("#pre-workout").on("click", function () {
   console.log("Clicked Pre-workout Btn");
+  AddEnergyLvlValue($energyLvl,10);
 });
 
-$("#get-fit").on("click", function (evt) {
+$("#get-fit").on("click", function () {
   console.log("Clicked Get-fit Btn");
+  AddWorkoutLvlValue($workoutSession,13)
 });
-
-//** Bulking Bar  */
-
-function bulking() {
-  let bulkEle = document.getElementById("moreCalorie");
-  let width = 100;
-  let time = 1;
-  let timeId = setInterval(frame, 300);
-  function frame() {
-    if (width >= 0) {
-      clearInterval(timeId);
-    } else {
-      width = width - time;
-      bulkEle.style.width = width + "%";
-    }
-  }
-}
-
-bulking();
-
-//** Progression Bar */
-
-i = 0;
-function advance() {
-  if (i === 0) {
-    i = 1;
-    let advanceEle = document.getElementById("advance-bar");
-    let width = 1;
-    let time = setInterval(frame, 200);
-    function frame() {
-      if (width >= 100) {
-        clearInterval(time);
-        i = 0;
-      } else {
-        width++;
-        advanceEle.style.width = width + "%";
-      }
-    }
-  }
-}
 
 
