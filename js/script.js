@@ -1,7 +1,7 @@
 
 
 
-// Global Variables 
+// ---- Global Variables ---- //
 
 athlete = {
     bulking: 100,
@@ -16,7 +16,11 @@ let $energyLvl = $('#energyLvl')
 let $workoutSession = $('#workoutSession')
 let $advanceBar = $('#advance-bar')
 
-// Decresing Value Bars 
+
+
+
+
+// ---- Decresing Value Bars ---- //
 
 function CalorieLvl (bars, speed){
 bulkingIntervalId =  setInterval(function(){
@@ -62,17 +66,26 @@ function AdvanceLvl (bars,speed){
         bars.css('width', athlete.advanceBar + "%");
         if (athlete.advanceBar>= 100){
             clearInterval(advanceBarIntervalId)
+        } else if (athlete.advanceBar === 50){
+            bars.html('ADVANCE');
+            console.log('passed 50');
+        } else if (athlete.advanceBar === 75){
+            bars.html('WORLD CLASS');
+            console.log("pass 75")
         }
-    },speed)
+    },speed);
+    
 };
 
-AdvanceLvl($advanceBar, 500);
+
+
+AdvanceLvl($advanceBar, 200); // 500 
 
 
 
 
+// ---- Adding Value on Btn Click ---- //
 
-// Adding Value on Btn Click 
 function AddMoreCalLvlValue (add, amount){
     athlete.bulking = athlete.bulking + amount;
     add.css('width', athlete.bulking);
@@ -99,7 +112,7 @@ function AddWorkoutLvlValue (add, amount){
 
 
 
-// Clicked Buttons
+// ---- Clicked Buttons ---- //
 
 $("#bulking").on("click", function () {
   console.log("Clicked Bulking Btn");
