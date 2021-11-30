@@ -7,22 +7,23 @@ athlete = {
     bulking: 100,
     preWorkout: 100,
     getFit : 100,
-
+    advanceBar: 0,
 };
 
 
 let $moreCalorie = $('#moreCalorie')
 let $energyLvl = $('#energyLvl')
 let $workoutSession = $('#workoutSession')
+let $advanceBar = $('#advance-bar')
 
 // Decresing Value Bars 
 
 function CalorieLvl (bars, speed){
-builkingIntervalId =  setInterval(function(){
+bulkingIntervalId =  setInterval(function(){
     athlete.bulking--;
     bars.css('width',athlete.bulking +"%");
     if (athlete.bulking <= 0){
-        clearInterval(builkingIntervalId)
+        clearInterval(bulkingIntervalId)
     }
 },speed);
 }
@@ -38,7 +39,6 @@ function EnergyLvl(bars, speed){
         }
     },speed)
 }
-
 EnergyLvl($energyLvl,100)
 
 function WorkoutLvl (bars,speed){
@@ -50,9 +50,21 @@ function WorkoutLvl (bars,speed){
         }
     }, speed)
 }
-
-
 WorkoutLvl($workoutSession, 80)
+
+
+function AdvanceLvl (bars,speed){
+    advanceBarIntervalId = setInterval(function (){
+        athlete.advanceBar++;
+        bars.css('width', athlete.advanceBar + "%");
+        if (athlete.advanceBar>= 100){
+            clearInterval(advanceBarIntervalId)
+        }
+    },speed)
+};
+
+AdvanceLvl($advanceBar, 500);
+
 
 
 
@@ -110,4 +122,4 @@ function advance() {
   }
 }
 
-advance();
+
