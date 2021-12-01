@@ -14,9 +14,16 @@ let $advanceBar = $("#advance-bar");
 let $gamePage = $("#game-page");
 let $lostPage = $("#lost-page");
 let $winPage = $("#congrat-page");
+let $startPage = $('#start-page')
 
 
+// ---- Hide All page ---- //
+$gamePage.css('display', "none");
+$lostPage.css('display', "none");
+$winPage.css('display', "none");
+$startPage.css('display', "block");
 
+// ---- Game ON ---- //
 
 
 
