@@ -11,7 +11,7 @@ let $moreCalorie = $("#moreCalorie");
 let $energyLvl = $("#energyLvl");
 let $workoutSession = $("#workoutSession");
 let $advanceBar = $("#advance-bar");
-let $gamePage = $("game-page");
+let $gamePage = $("#game-page");
 let $lostPage = $("#lost-page");
 
 // ---- Losing Game ---- //
@@ -22,8 +22,7 @@ function lostGame() {
     athlete.preWorkout === 0 ||
     athlete.getFit === 0
   ) {
-    // $gamePage.fadeOut();
-    // $gamePage.css('display','none');
+    $gamePage.fadeOut();
     $lostPage.css("display", "block");
   }
 }
@@ -37,6 +36,7 @@ function CalorieLvl(bars, speed) {
     bars.html(athlete.bulking + "%");
     if (athlete.bulking <= 0) {
       clearInterval(bulkingIntervalId);
+      lostGame();
     }
   }, speed);
 }
@@ -49,6 +49,7 @@ function EnergyLvl(bars, speed) {
     bars.html(athlete.preWorkout + "%");
     if (athlete.preWorkout <= 0) {
       clearInterval(preWorkoutIntervalId);
+      lostGame();
     }
   }, speed);
 }
