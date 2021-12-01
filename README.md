@@ -23,5 +23,6 @@ To lose:
 Fail to maintain the 3 main bars will end the game, which promt user to Loser Page
 
 
+Wireframe:
 
 ![wireframe](/img/training_camp_wireframe.png)
