@@ -9,92 +9,114 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-/* img {
-  max-width: 500px;
-} */
 
-/* Game-Page CSS */
+
+/* ======= Game Page CSS ======= */
+
 #game-page {
-  /* margin: auto;
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 100vh;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(24, 69, 59);
+  color: #0db38e;
 }
 
 #game-page h1 {
   text-align: center;
-  font-size: 3rem;
+  font-size: 7rem;
+  font-family: "Futura LT Pro", sans-serif;
+}
+#gamePageBox{
+  border: 10px  solid white;
+  border-style: dashed solid;
+  margin: 20px;
 }
 #main {
   display: flex;
   justify-content: center;
-  padding: 50px;
+  margin: 10px;
+  padding: 10px;
 }
 #prgressBar {
-  padding-top: 20px;
-  /* align-content: center; */
+  display: flex;
+  flex-direction: column;
 }
-
-#avatar-img img {
-  width: 250px;
-  border-radius: 100px;
-}
-
 #container {
   width: 175px;
   background-color: grey;
   margin: 10px;
   font-size: 0.5rem;
+  padding: 2%;
+  border-radius: 2em;
+  color: white;
+}
+#container p {
+  padding: 0px 0px 2px 5px;
+  font-weight: 500;
+  font-size: 0.75rem;
+  justify-content: center;
 }
 .prog-text {
   text-align: center;
   display: flex;
 }
 
-#moreCalorie {
-  width: 100%;
-  height: 20px;
-  background-color: green;
+#avatar-img img {
+  width: 300px;
+  height: 200px;
+  border-radius: 1em;
+  padding: 10px;
 }
-#energyLvl {
-  width: 100%;
-  height: 20px;
-  background-color: green;
-  max-width: calc(100%-1em);
-}
+
+#moreCalorie,
+#energyLvl,
 #workoutSession {
   width: 100%;
   height: 20px;
-  background-color: green;
+  background-color: #0db38e;
+  border-radius: 2em;
 }
 
 .gameBtn {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 60px;
   margin-bottom: 75px;
 }
 
-#bulking {
-  border: none;
-  padding: 10px;
-  width: 150px;
+
+#bulking:hover{
+  background-color: transparent;
+  border: 2px solid #0DB38E;
+  color: #0DB38E;
+}
+#pre-workout:hover{
+  background-color: transparent;
+  border: 2px solid #0DB38E;
+  color: #0DB38E;
+}
+#get-fit:hover{
+  background-color: transparent;
+  border: 2px solid #0DB38E;
+  color: #0DB38E;
 }
 
-#pre-workout {
-  border: none;
-  margin: 0px 30px 0px 30px;
-  padding: 10px;
-  width: 150px;
-}
-
+#bulking,
+#pre-workout,
 #get-fit {
   border: none;
   padding: 10px;
   width: 150px;
+  border-radius: 2em;
+  color: white;
+  background-color: #0db38e;
+  margin: 5px;
+  border: 2px solid #0DB38E;
 }
+
 
 #advanceLvl {
   width: 75%;
@@ -104,15 +126,22 @@ body {
   margin-right: auto;
   padding: 10px;
   border-radius: 3em;
+  color: white;
 }
 
 #advance-bar {
   width: 1%;
   height: 100%;
-  background-color: green;
-  margin: 0px 0px 0px 0px;
+  background-color: #0DB38E;
   border-radius: 3em;
+  align-items: center;
 }
+
+#game-page #advanceTxt{
+  font-size: 3rem
+}
+
+
 
 /* ======= Start Page CSS ======= */
 
@@ -203,7 +232,7 @@ input[type="text"] {
 
 /* ======= Lost Page CSS ======= */
 
-#lost-page{
+#lost-page {
   /* border: 1px solid black; */
   display: flex;
   justify-content: center;
@@ -215,31 +244,31 @@ input[type="text"] {
   color: white;
 }
 
-#lostPage{
+#lostPage {
   /* border: 1px solid red; */
   padding: 5%;
   width: 50%;
   text-align: center;
 }
 
-#lostPage h1{
+#lostPage h1 {
   font-size: 4rem;
   padding: 5%;
   font-family: "Futura LT Pro", sans-serif;
 }
-#lostPage img{
+#lostPage img {
   width: 100%;
   padding: 5px;
   border-radius: 1em;
 }
-#lostPage span{
- color: red;
+#lostPage span {
+  color: red;
 }
-.restart p{
+.restart p {
   padding: 10px;
 }
 
-#restartBtn{
+#restartBtn {
   height: 100px;
   width: 100px;
   border-radius: 4em;
@@ -249,42 +278,40 @@ input[type="text"] {
   color: white;
   margin-top: 2%;
 }
-#restartBtn:hover{
+#restartBtn:hover {
   color: rgba(255, 255, 255, 1);
-  box-shadow: 0px 5px 20px rgba(145, 92, 182, .7);
+  box-shadow: 0px 5px 20px rgba(145, 92, 182, 0.7);
 }
-
 
 /* ======= Winning Page CSS ======= */
 
-#congrat-page{
+#congrat-page {
   display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: center;
   margin: 0;
   align-items: center;
-  background-color: #FBEADC;
+  background-color: #fbeadc;
   color: white;
 }
 
-#congratPage img{
+#congratPage img {
   border-radius: 1em;
 }
 
-#congrat-page h1{
-margin-top: 2%;
-font-size: 3rem;
+#congrat-page h1 {
+  margin-top: 2%;
+  font-size: 3rem;
 }
-#congrat-page h1 span{
+#congrat-page h1 span {
   color: black;
   font-size: 6rem;
 }
-#congratPage img{
-  transform: scale(.75);
+#congratPage img {
+  transform: scale(0.75);
   transition: 0.3s ease-in-out;
 }
-#congratPage img:hover{
+#congratPage img:hover {
   transform: scale(1.5);
-
 }

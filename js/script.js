@@ -1,4 +1,4 @@
-// ======= Global Variables ======= //
+// ============== Global Variables ============== //
 
 athlete = {
   bulking: 100,
@@ -11,6 +11,7 @@ let $moreCalorie = $("#moreCalorie");
 let $energyLvl = $("#energyLvl");
 let $workoutSession = $("#workoutSession");
 let $advanceBar = $("#advance-bar");
+let $advanceBarTxt = $('#advanceTxt')
 let $gamePage = $("#game-page");
 let $lostPage = $("#lost-page");
 let $winPage = $("#congrat-page");
@@ -19,22 +20,15 @@ let $startPage = $("#start-Page");
 let $consentBox = $("#consent");
 let $aysBox = $("#ays");
 
-// $(document).ready(function (){
-//   $consentBox.change (function (){
-//     if ($(this).is(":checked")){
-//       $gamePage.show();
-//     }
-//   })
-// })
 
-// ======= Hide All page ======= //
-// $gamePage.css("display", "none");
+// ============== Hide All page ============== //
+$gamePage.css("display", "none");
 $lostPage.css("display", "none");
 $winPage.css("display", "none");
-$startPage.css("display", "none");
+// $startPage.css("display", "none");
 
 
-// ======= Game ON ======= //
+// ============== Game ON ============== //
 
 function startingGame() {
   console.log("start game btn hit");
@@ -43,10 +37,10 @@ function startingGame() {
   CalorieLvl($moreCalorie, 150);
   EnergyLvl($energyLvl, 100);
   WorkoutLvl($workoutSession, 80);
-  AdvanceLvl($advanceBar, 200);
+  AdvanceLvl($advanceBar,$advanceBarTxt, 500);
 }
 
-// ======= Losing Game ======= //
+// ============== Losing Game ============== //
 
 function lostGame() {
   if (
@@ -60,7 +54,7 @@ function lostGame() {
   }
 }
 
-// ======= Winning game ======= //
+// ============== Winning game ============== //
 function winGame() {
   $gamePage.hide();
   $winPage.fadeIn();
@@ -68,7 +62,7 @@ function winGame() {
   clearValue();
 }
 
-// ======= Stop Counting  ======= //
+// ============== Stop Counting  ============== //
 function clearValue(){
   clearInterval(bulkingIntervalId)
   clearInterval(preWorkoutIntervalId)
@@ -80,10 +74,10 @@ function resetValue(){
   CalorieLvl($moreCalorie, 150);
   EnergyLvl($energyLvl, 100);
   WorkoutLvl($workoutSession, 80);
-  AdvanceLvl($advanceBar, 200);
+  AdvanceLvl($advanceBar,$advanceBarTxt, 200);
 }
 
-// ======= Decresing Value Bars ======= //
+// ============== Decresing Value Bars ============== //
 
 function CalorieLvl(bars, speed) {
   bulkingIntervalId = setInterval(function () {
@@ -124,17 +118,17 @@ function WorkoutLvl(bars, speed) {
 }
 // WorkoutLvl($workoutSession, 80);
 
-function AdvanceLvl(bars, speed) {
+function AdvanceLvl(bars,barTxt, speed) {
   advanceBarIntervalId = setInterval(function () {
     athlete.advanceBar++;
     bars.css("width", athlete.advanceBar + "%");
     if (athlete.advanceBar >= 100) {
       clearInterval(advanceBarIntervalId);
     } else if (athlete.advanceBar === 50) {
-      bars.html("ADVANCE");
+      barTxt.html("ADVANCE");
       console.log("passed 50");
     } else if (athlete.advanceBar === 75) {
-      bars.html("WORLD CLASS");
+      barTxt.html("WORLD CLASS");
       console.log("pass 75");
     }
     if (athlete.advanceBar === 100){
@@ -145,10 +139,10 @@ function AdvanceLvl(bars, speed) {
 
 // AdvanceLvl($advanceBar, 500);
 
-// ======= Adding Value on Btn Click ======= //
+// ============== Adding Value on Btn Click ============== //
 
 function AddMoreCalLvlValue(add, amount) {
-  athlete.bulking = athlete.bulking + amount;
+  athlete.bulking = athlete.bulking +  amount;
   add.css("width", athlete.bulking);
   if (athlete.bulking >= 100) {
     athlete.bulking = 100;
@@ -171,21 +165,21 @@ function AddWorkoutLvlValue(add, amount) {
   }
 }
 
-// ======= Clicked Buttons ======= //
+// ============== Clicked Buttons ============== //
 
 $("#bulking").on("click", function () {
   console.log("Clicked Bulking Btn");
-  AddMoreCalLvlValue($moreCalorie, 5);
+  AddMoreCalLvlValue($moreCalorie, 100);
 });
 
 $("#pre-workout").on("click", function () {
   console.log("Clicked Pre-workout Btn");
-  AddEnergyLvlValue($energyLvl, 10);
+  AddEnergyLvlValue($energyLvl, 100);
 });
 
 $("#get-fit").on("click", function () {
   console.log("Clicked Get-fit Btn");
-  AddWorkoutLvlValue($workoutSession, 13);
+  AddWorkoutLvlValue($workoutSession, 100);
 });
 
 $("#startBtn").on("click", function (e) {
