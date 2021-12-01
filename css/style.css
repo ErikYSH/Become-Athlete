@@ -253,3 +253,38 @@ input[type="text"] {
   color: rgba(255, 255, 255, 1);
   box-shadow: 0px 5px 20px rgba(145, 92, 182, .7);
 }
+
+
+/* ======= Winning Page CSS ======= */
+
+#congrat-page{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  margin: 0;
+  align-items: center;
+  background-color: #FBEADC;
+  color: white;
+}
+
+#congratPage img{
+  border-radius: 1em;
+}
+
+#congrat-page h1{
+margin-top: 2%;
+font-size: 3rem;
+}
+#congrat-page h1 span{
+  color: black;
+  font-size: 6rem;
+}
+#congratPage img{
+  transform: scale(.75);
+  transition: 0.3s ease-in-out;
+}
+#congratPage img:hover{
+  transform: scale(1.5);
+
+}
