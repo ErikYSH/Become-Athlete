@@ -29,16 +29,16 @@ let $aysBox = $("#ays");
 
 // ---- Hide All page ---- //
 $gamePage.css("display", "none");
-$lostPage.css("display", "none");
+$lostPage.css("display", "block");
 $winPage.css("display", "none");
-$startPage.css("display", "block");
+$startPage.css("display", "none");
 
 // ---- Game ON ---- //
 
 function startingGame() {
   console.log("start game btn hit");
   $startPage.hide();
-  $gamePage.show();
+  $gamePage.fadeIn();
   CalorieLvl($moreCalorie, 150);
   EnergyLvl($energyLvl, 100);
   WorkoutLvl($workoutSession, 80);
@@ -55,6 +55,7 @@ function lostGame() {
   ) {
     $gamePage.fadeOut();
     $lostPage.css("display", "block");
+    clearValue();
   }
 }
 
@@ -66,11 +67,12 @@ function winGame() {
   clearValue();
 }
 
-// Reset Values //
+// Stop Counting //
 function clearValue(){
   clearInterval(bulkingIntervalId)
   clearInterval(preWorkoutIntervalId)
   clearInterval(getFitIntervalId)
+  clearInterval(advanceBarIntervalId)
 }
 
 
@@ -188,3 +190,9 @@ $("#startBtn").on("click", function (e) {
     alert("CHECK ALL BOXES");
   }
 });
+
+$("#restartBtn").on("click", function(e){
+  e.preventDefault();
+ $lostPage.hide();
+  startingGame();
+})
