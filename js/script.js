@@ -11,15 +11,15 @@ let $moreCalorie = $("#moreCalorie");
 let $energyLvl = $("#energyLvl");
 let $workoutSession = $("#workoutSession");
 let $advanceBar = $("#advance-bar");
-let $advanceBarTxt = $('#advanceTxt')
+let $advanceBarTxt = $("#advanceTxt");
 let $gamePage = $("#game-page");
 let $lostPage = $("#lost-page");
 let $winPage = $("#congrat-page");
 let $startPage = $("#start-Page");
-
+let $userInput = $(".name");
+let $userName = $("#userName");
 let $consentBox = $("#consent");
 let $aysBox = $("#ays");
-
 
 // ============== Hide All page ============== //
 $gamePage.css("display", "none");
@@ -27,17 +27,21 @@ $lostPage.css("display", "none");
 $winPage.css("display", "none");
 // $startPage.css("display", "none");
 
-
 // ============== Game ON ============== //
-
 function startingGame() {
   console.log("start game btn hit");
+  $userName.html($userInput.val() + " Trainnie");
   $startPage.hide();
   $gamePage.fadeIn();
-  CalorieLvl($moreCalorie, 150);
-  EnergyLvl($energyLvl, 100);
+  CalorieLvl($moreCalorie, 250);
+  EnergyLvl($energyLvl, 150);
   WorkoutLvl($workoutSession, 80);
-  AdvanceLvl($advanceBar,$advanceBarTxt, 500);
+  AdvanceLvl($advanceBar, $advanceBarTxt, 450);
+  if (athlete.advanceBar > 50) {
+    CalorieLvl($moreCalorie, 100);
+    EnergyLvl($energyLvl, 100);
+    WorkoutLvl($workoutSession, 100);
+  }
 }
 
 // ============== Losing Game ============== //
@@ -58,23 +62,32 @@ function lostGame() {
 function winGame() {
   $gamePage.hide();
   $winPage.fadeIn();
-  $lostPage.hide()
+  $lostPage.hide();
   clearValue();
 }
 
 // ============== Stop Counting  ============== //
-function clearValue(){
-  clearInterval(bulkingIntervalId)
-  clearInterval(preWorkoutIntervalId)
-  clearInterval(getFitIntervalId)
-  clearInterval(advanceBarIntervalId)
+function clearValue() {
+  clearInterval(bulkingIntervalId);
+  clearInterval(preWorkoutIntervalId);
+  clearInterval(getFitIntervalId);
+  clearInterval(advanceBarIntervalId);
 }
 
-function resetValue(){
-  CalorieLvl($moreCalorie, 150);
-  EnergyLvl($energyLvl, 100);
-  WorkoutLvl($workoutSession, 80);
-  AdvanceLvl($advanceBar,$advanceBarTxt, 200);
+function resetValue() {
+  CalorieLvl($moreCalorie, 400);
+  EnergyLvl($energyLvl, 400);
+  WorkoutLvl($workoutSession, 400);
+  AdvanceLvl($advanceBar, $advanceBarTxt, 200);
+}
+
+function resetGame() {
+  if (this.id === "moreCalorie") {
+    clearInterval(bulkingIntervalId);
+    athlete.bulking = 100;
+    $moreCalorie.css("width", athlete.bulking + "%");
+    CalorieLvl($moreCalorie, 150);
+  }
 }
 
 // ============== Decresing Value Bars ============== //
@@ -84,6 +97,7 @@ function CalorieLvl(bars, speed) {
     athlete.bulking--;
     bars.css("width", athlete.bulking + "%");
     bars.html(athlete.bulking + "%");
+
     if (athlete.bulking <= 0) {
       clearInterval(bulkingIntervalId);
       lostGame();
@@ -118,7 +132,7 @@ function WorkoutLvl(bars, speed) {
 }
 // WorkoutLvl($workoutSession, 80);
 
-function AdvanceLvl(bars,barTxt, speed) {
+function AdvanceLvl(bars, barTxt, speed) {
   advanceBarIntervalId = setInterval(function () {
     athlete.advanceBar++;
     bars.css("width", athlete.advanceBar + "%");
@@ -131,7 +145,7 @@ function AdvanceLvl(bars,barTxt, speed) {
       barTxt.html("WORLD CLASS");
       console.log("pass 75");
     }
-    if (athlete.advanceBar === 100){
+    if (athlete.advanceBar === 100) {
       winGame();
     }
   }, speed);
@@ -139,11 +153,13 @@ function AdvanceLvl(bars,barTxt, speed) {
 
 // AdvanceLvl($advanceBar, 500);
 
+
+
 // ============== Adding Value on Btn Click ============== //
 
 function AddMoreCalLvlValue(add, amount) {
-  athlete.bulking = athlete.bulking +  amount;
-  add.css("width", athlete.bulking);
+  athlete.bulking = athlete.bulking + amount;
+  add.css("width", athlete.bulking + "%");
   if (athlete.bulking >= 100) {
     athlete.bulking = 100;
   }
@@ -151,7 +167,7 @@ function AddMoreCalLvlValue(add, amount) {
 
 function AddEnergyLvlValue(add, amount) {
   athlete.preWorkout = athlete.preWorkout + amount;
-  add.css("width", athlete.preWorkout);
+  add.css("width", athlete.preWorkout + "%");
   if (athlete.preWorkout >= 100) {
     athlete.preWorkout = 100;
   }
@@ -159,7 +175,7 @@ function AddEnergyLvlValue(add, amount) {
 
 function AddWorkoutLvlValue(add, amount) {
   athlete.getFit = athlete.getFit + amount;
-  add.css("width", athlete.getFit);
+  add.css("width", athlete.getFit + "%");
   if (athlete.getFit >= 100) {
     athlete.getFit = 100;
   }
@@ -169,17 +185,17 @@ function AddWorkoutLvlValue(add, amount) {
 
 $("#bulking").on("click", function () {
   console.log("Clicked Bulking Btn");
-  AddMoreCalLvlValue($moreCalorie, 100);
+  AddMoreCalLvlValue($moreCalorie, 50);
 });
 
 $("#pre-workout").on("click", function () {
   console.log("Clicked Pre-workout Btn");
-  AddEnergyLvlValue($energyLvl, 100);
+  AddEnergyLvlValue($energyLvl, 50);
 });
 
 $("#get-fit").on("click", function () {
   console.log("Clicked Get-fit Btn");
-  AddWorkoutLvlValue($workoutSession, 100);
+  AddWorkoutLvlValue($workoutSession, 50);
 });
 
 $("#startBtn").on("click", function (e) {
@@ -192,8 +208,8 @@ $("#startBtn").on("click", function (e) {
   }
 });
 
-$("#restartBtn").on("click", function(e){
+$("#restartBtn").on("click", function (e) {
   e.preventDefault();
   $lostPage.hide();
   startingGame();
-})
+});

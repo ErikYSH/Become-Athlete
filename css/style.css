@@ -11,7 +11,7 @@ body {
 
 
 
-/* ======= Game Page CSS ======= */
+/* ========== Game Page CSS ========== */
 
 #game-page {
   display: flex;
@@ -30,6 +30,10 @@ body {
   font-size: 7rem;
   font-family: "Futura LT Pro", sans-serif;
 }
+#userName{
+  text-align: center;
+}
+
 #gamePageBox{
   border: 10px  solid white;
   border-style: dashed solid;
@@ -41,7 +45,7 @@ body {
   margin: 10px;
   padding: 10px;
 }
-#prgressBar {
+#progressBar {
   display: flex;
   flex-direction: column;
 }
@@ -143,7 +147,7 @@ body {
 
 
 
-/* ======= Start Page CSS ======= */
+/* ========== Start Page CSS ========== */
 
 #start-Page {
   /* border: 1px solid black; */
@@ -185,7 +189,7 @@ header {
   text-align: center;
   background: transparent;
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid white;
   outline: none;
   font-size: 3rem;
 }
@@ -230,7 +234,7 @@ input[type="text"] {
   color: grey;
 }
 
-/* ======= Lost Page CSS ======= */
+/* ========== Lost Page CSS ========== */
 
 #lost-page {
   /* border: 1px solid black; */
@@ -283,7 +287,9 @@ input[type="text"] {
   box-shadow: 0px 5px 20px rgba(145, 92, 182, 0.7);
 }
 
-/* ======= Winning Page CSS ======= */
+/* ========== Winning Page CSS ========== */
+
+
 
 #congrat-page {
   display: flex;
@@ -294,6 +300,13 @@ input[type="text"] {
   align-items: center;
   background-color: #fbeadc;
   color: white;
+}
+#congratContainer{
+  width: 1500px;
+  display: flex;
+  /* border: 1px black solid; */
+  align-items: center;
+
 }
 
 #congratPage img {
