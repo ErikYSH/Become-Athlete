@@ -13,6 +13,17 @@ let $workoutSession = $("#workoutSession");
 let $advanceBar = $("#advance-bar");
 let $gamePage = $("#game-page");
 let $lostPage = $("#lost-page");
+let $winPage = $("#congrat-page");
+
+
+
+
+
+
+
+
+
+
 
 // ---- Losing Game ---- //
 
@@ -26,6 +37,13 @@ function lostGame() {
     $lostPage.css("display", "block");
   }
 }
+
+// ---- Winning game ---- //
+function winGame(){
+    $gamePage.fadeOut();
+    $winPage.fadeIn();
+}
+
 
 // ---- Decresing Value Bars ---- //
 
