@@ -1,4 +1,4 @@
-// ---- Global Variables ---- //
+// ======= Global Variables ======= //
 
 athlete = {
   bulking: 100,
@@ -14,7 +14,7 @@ let $advanceBar = $("#advance-bar");
 let $gamePage = $("#game-page");
 let $lostPage = $("#lost-page");
 let $winPage = $("#congrat-page");
-let $startPage = $("#start-page");
+let $startPage = $("#start-Page");
 
 let $consentBox = $("#consent");
 let $aysBox = $("#ays");
@@ -27,13 +27,13 @@ let $aysBox = $("#ays");
 //   })
 // })
 
-// ---- Hide All page ---- //
+// ======= Hide All page ======= //
 $gamePage.css("display", "none");
-$lostPage.css("display", "block");
+$lostPage.css("display", "none");
 $winPage.css("display", "none");
-$startPage.css("display", "none");
 
-// ---- Game ON ---- //
+
+// ======= Game ON ======= //
 
 function startingGame() {
   console.log("start game btn hit");
@@ -45,7 +45,7 @@ function startingGame() {
   AdvanceLvl($advanceBar, 200);
 }
 
-// ---- Losing Game ---- //
+// ======= Losing Game ======= //
 
 function lostGame() {
   if (
@@ -53,13 +53,13 @@ function lostGame() {
     athlete.preWorkout === 0 ||
     athlete.getFit === 0
   ) {
-    $gamePage.fadeOut();
-    $lostPage.css("display", "block");
+    $gamePage.hide();
+    $lostPage.fadeIn();
     clearValue();
   }
 }
 
-// ---- Winning game ---- //
+// ======= Winning game ======= //
 function winGame() {
   $gamePage.hide();
   $winPage.fadeIn();
@@ -67,7 +67,7 @@ function winGame() {
   clearValue();
 }
 
-// Stop Counting //
+// ======= Stop Counting  ======= //
 function clearValue(){
   clearInterval(bulkingIntervalId)
   clearInterval(preWorkoutIntervalId)
@@ -75,8 +75,14 @@ function clearValue(){
   clearInterval(advanceBarIntervalId)
 }
 
+function resetValue(){
+  CalorieLvl($moreCalorie, 150);
+  EnergyLvl($energyLvl, 100);
+  WorkoutLvl($workoutSession, 80);
+  AdvanceLvl($advanceBar, 200);
+}
 
-// ---- Decresing Value Bars ---- //
+// ======= Decresing Value Bars ======= //
 
 function CalorieLvl(bars, speed) {
   bulkingIntervalId = setInterval(function () {
@@ -138,7 +144,7 @@ function AdvanceLvl(bars, speed) {
 
 // AdvanceLvl($advanceBar, 500);
 
-// ---- Adding Value on Btn Click ---- //
+// ======= Adding Value on Btn Click ======= //
 
 function AddMoreCalLvlValue(add, amount) {
   athlete.bulking = athlete.bulking + amount;
@@ -164,7 +170,7 @@ function AddWorkoutLvlValue(add, amount) {
   }
 }
 
-// ---- Clicked Buttons ---- //
+// ======= Clicked Buttons ======= //
 
 $("#bulking").on("click", function () {
   console.log("Clicked Bulking Btn");
@@ -193,6 +199,6 @@ $("#startBtn").on("click", function (e) {
 
 $("#restartBtn").on("click", function(e){
   e.preventDefault();
- $lostPage.hide();
+  $lostPage.hide();
   startingGame();
 })

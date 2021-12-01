@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -12,10 +13,6 @@ img {
   max-width: 500px;
 }
 
-/* section {
-  padding: 0px 0px 50px 0px;
-} */
-
 /* Game-Page CSS */
 #game-page {
   /* margin: auto;
@@ -25,7 +22,6 @@ img {
   left: 50%;
   transform: translate(-50%, -50%); */
   height: 100%;
-
 }
 
 #game-page h1 {
@@ -36,13 +32,11 @@ img {
   display: flex;
   justify-content: center;
   padding: 50px;
-  
 }
 #prgressBar {
   padding-top: 20px;
-/* align-content: center; */
+  /* align-content: center; */
 }
-
 
 #avatar-img img {
   width: 250px;
@@ -55,10 +49,9 @@ img {
   margin: 10px;
   font-size: 0.5rem;
 }
-.prog-text{
+.prog-text {
   text-align: center;
   display: flex;
- 
 }
 
 #moreCalorie {
@@ -120,4 +113,92 @@ img {
   margin: 0px 0px 0px 0px;
   border-radius: 3em;
 }
+
+/* ======= Start Page CSS ======= */
+
+#start-Page {
+  /* border: 1px solid black; */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0;
+  position: relative;
+  background-color: rgb(24,69,59);
+  color: white;
+}
+
+#startPage {
+  /* border: red 1px solid; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px;
+  margin: auto;
+  /* position: absolute; */
+  text-align: center;
+}
+
+header {
+  margin: 10%;
+  margin-top: 5%;
+  text-align: center;
+  font-size: 4rem;
+  font-family: 'Futura LT Pro', sans-serif;
+  font-weight: 1000;
+}
+.enterName {
+  padding: 3%;
+}
+
+.enterName .name {
+  /* border-radius: 3em; */
+  text-align: center;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  font-size: 3rem;
+}
+input[type=text]{
+  color: white
+}
+
+.enterName #startBtn {
+  border-radius: 3em;
+  padding: 3%;
+  margin: 10px;
+  border: 1px solid grey;
+background-color: rgb(24,69,59);
+color: white;
+}
+#startBtn:hover{
+  color: rgb(24,69,59);
+  background-color: white;
+}
+
+.consentForm,
+.aysForm {
+  text-align: left;
+  padding: 1%;
+  font-size: small;
+}
+.checkbox-rounds{
+  appearance: none;
+  border-radius: 50%;
+  width: 1.2em;
+  height: 1.2em;
+  cursor: pointer;
+  vertical-align: middle;
+  background-color: white;
+}
+.checkbox-rounds:checked{
+  background-color: grey;
+}
+
+#startPage p {
+padding: 1%;
+color: grey;
+}
+
 
