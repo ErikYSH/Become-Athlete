@@ -19,9 +19,6 @@ let $startPage = $("#start-page");
 let $consentBox = $("#consent");
 let $aysBox = $("#ays");
 
-
-
-
 // $(document).ready(function (){
 //   $consentBox.change (function (){
 //     if ($(this).is(":checked")){
@@ -29,8 +26,6 @@ let $aysBox = $("#ays");
 //     }
 //   })
 // })
-
-
 
 // ---- Hide All page ---- //
 $gamePage.css("display", "none");
@@ -41,17 +36,14 @@ $startPage.css("display", "block");
 // ---- Game ON ---- //
 
 function startingGame() {
-    console.log("start game btn hit");
-    $startPage.hide();
-    $gamePage.show();
-
-    // CalorieLvl($moreCalorie, 150);
-
-// EnergyLvl($energyLvl, 100);
-// WorkoutLvl($workoutSession, 80);
-// AdvanceLvl($advanceBar, 500);
-  }
-
+  console.log("start game btn hit");
+  $startPage.hide();
+  $gamePage.show();
+  CalorieLvl($moreCalorie, 150);
+  EnergyLvl($energyLvl, 100);
+  WorkoutLvl($workoutSession, 80);
+  AdvanceLvl($advanceBar, 200);
+}
 
 // ---- Losing Game ---- //
 
@@ -68,9 +60,19 @@ function lostGame() {
 
 // ---- Winning game ---- //
 function winGame() {
-  $gamePage.fadeOut();
+  $gamePage.hide();
   $winPage.fadeIn();
+  $lostPage.hide()
+  clearValue();
 }
+
+// Reset Values //
+function clearValue(){
+  clearInterval(bulkingIntervalId)
+  clearInterval(preWorkoutIntervalId)
+  clearInterval(getFitIntervalId)
+}
+
 
 // ---- Decresing Value Bars ---- //
 
@@ -126,6 +128,9 @@ function AdvanceLvl(bars, speed) {
       bars.html("WORLD CLASS");
       console.log("pass 75");
     }
+    if (athlete.advanceBar === 100){
+      winGame();
+    }
   }, speed);
 }
 
@@ -174,13 +179,12 @@ $("#get-fit").on("click", function () {
   AddWorkoutLvlValue($workoutSession, 13);
 });
 
-
 $("#startBtn").on("click", function (e) {
   e.preventDefault();
   if ($aysBox.is(":checked") && $consentBox.is(":checked")) {
     console.log("Its going Down");
     startingGame();
-  }else{
-    alert("CHECK ALL BOXES")
+  } else {
+    alert("CHECK ALL BOXES");
   }
 });
