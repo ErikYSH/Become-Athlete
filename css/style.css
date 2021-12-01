@@ -121,18 +121,3 @@ img {
   border-radius: 3em;
 }
 
-/* Start Page CSS */
-
-#start-page {
-  display: none;
-}
-
-/* Lost Page CSS */
-#lost-page {
-  display: none;
-}
-
-/* Winning Page CSS */
-#congrat-page {
-  display: none;
-}

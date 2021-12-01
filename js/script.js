@@ -14,22 +14,43 @@ let $advanceBar = $("#advance-bar");
 let $gamePage = $("#game-page");
 let $lostPage = $("#lost-page");
 let $winPage = $("#congrat-page");
-let $startPage = $('#start-page')
+let $startPage = $("#start-page");
+
+let $consentBox = $("#consent");
+let $aysBox = $("#ays");
+
+
+
+
+// $(document).ready(function (){
+//   $consentBox.change (function (){
+//     if ($(this).is(":checked")){
+//       $gamePage.show();
+//     }
+//   })
+// })
+
 
 
 // ---- Hide All page ---- //
-$gamePage.css('display', "none");
-$lostPage.css('display', "none");
-$winPage.css('display', "none");
-$startPage.css('display', "block");
+$gamePage.css("display", "none");
+$lostPage.css("display", "none");
+$winPage.css("display", "none");
+$startPage.css("display", "block");
 
 // ---- Game ON ---- //
 
+function startingGame() {
+    console.log("start game btn hit");
+    $startPage.hide();
+    $gamePage.show();
 
+    // CalorieLvl($moreCalorie, 150);
 
-
-
-
+// EnergyLvl($energyLvl, 100);
+// WorkoutLvl($workoutSession, 80);
+// AdvanceLvl($advanceBar, 500);
+  }
 
 
 // ---- Losing Game ---- //
@@ -46,11 +67,10 @@ function lostGame() {
 }
 
 // ---- Winning game ---- //
-function winGame(){
-    $gamePage.fadeOut();
-    $winPage.fadeIn();
+function winGame() {
+  $gamePage.fadeOut();
+  $winPage.fadeIn();
 }
-
 
 // ---- Decresing Value Bars ---- //
 
@@ -65,7 +85,7 @@ function CalorieLvl(bars, speed) {
     }
   }, speed);
 }
-CalorieLvl($moreCalorie, 150);
+// CalorieLvl($moreCalorie, 150);
 
 function EnergyLvl(bars, speed) {
   preWorkoutIntervalId = setInterval(function () {
@@ -78,7 +98,7 @@ function EnergyLvl(bars, speed) {
     }
   }, speed);
 }
-EnergyLvl($energyLvl, 100);
+// EnergyLvl($energyLvl, 100);
 
 function WorkoutLvl(bars, speed) {
   getFitIntervalId = setInterval(function () {
@@ -91,7 +111,7 @@ function WorkoutLvl(bars, speed) {
     }
   }, speed);
 }
-WorkoutLvl($workoutSession, 80);
+// WorkoutLvl($workoutSession, 80);
 
 function AdvanceLvl(bars, speed) {
   advanceBarIntervalId = setInterval(function () {
@@ -109,7 +129,7 @@ function AdvanceLvl(bars, speed) {
   }, speed);
 }
 
-AdvanceLvl($advanceBar, 500);
+// AdvanceLvl($advanceBar, 500);
 
 // ---- Adding Value on Btn Click ---- //
 
@@ -152,4 +172,15 @@ $("#pre-workout").on("click", function () {
 $("#get-fit").on("click", function () {
   console.log("Clicked Get-fit Btn");
   AddWorkoutLvlValue($workoutSession, 13);
+});
+
+
+$("#startBtn").on("click", function (e) {
+  e.preventDefault();
+  if ($aysBox.is(":checked") && $consentBox.is(":checked")) {
+    console.log("Its going Down");
+    startingGame();
+  }else{
+    alert("CHECK ALL BOXES")
+  }
 });
