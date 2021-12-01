@@ -9,9 +9,9 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-img {
+/* img {
   max-width: 500px;
-}
+} */
 
 /* Game-Page CSS */
 #game-page {
@@ -124,7 +124,7 @@ img {
   flex-direction: column;
   margin: 0;
   position: relative;
-  background-color: rgb(24,69,59);
+  background-color: rgb(24, 69, 59);
   color: white;
 }
 
@@ -144,7 +144,7 @@ header {
   margin-top: 5%;
   text-align: center;
   font-size: 4rem;
-  font-family: 'Futura LT Pro', sans-serif;
+  font-family: "Futura LT Pro", sans-serif;
   font-weight: 1000;
 }
 .enterName {
@@ -160,8 +160,8 @@ header {
   outline: none;
   font-size: 3rem;
 }
-input[type=text]{
-  color: white
+input[type="text"] {
+  color: white;
 }
 
 .enterName #startBtn {
@@ -169,11 +169,11 @@ input[type=text]{
   padding: 3%;
   margin: 10px;
   border: 1px solid grey;
-background-color: rgb(24,69,59);
-color: white;
+  background-color: rgb(24, 69, 59);
+  color: white;
 }
-#startBtn:hover{
-  color: rgb(24,69,59);
+#startBtn:hover {
+  color: rgb(24, 69, 59);
   background-color: white;
 }
 
@@ -183,7 +183,7 @@ color: white;
   padding: 1%;
   font-size: small;
 }
-.checkbox-rounds{
+.checkbox-rounds {
   appearance: none;
   border-radius: 50%;
   width: 1.2em;
@@ -192,13 +192,64 @@ color: white;
   vertical-align: middle;
   background-color: white;
 }
-.checkbox-rounds:checked{
+.checkbox-rounds:checked {
   background-color: grey;
 }
 
 #startPage p {
-padding: 1%;
-color: grey;
+  padding: 1%;
+  color: grey;
 }
 
+/* ======= Lost Page CSS ======= */
 
+#lost-page{
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100vh;
+  position: relative;
+  background-color: rgb(24, 69, 59);
+  color: white;
+}
+
+#lostPage{
+  /* border: 1px solid red; */
+  padding: 5%;
+  width: 50%;
+  text-align: center;
+}
+
+#lostPage h1{
+  font-size: 4rem;
+  padding: 5%;
+  font-family: "Futura LT Pro", sans-serif;
+}
+#lostPage img{
+  width: 100%;
+  padding: 5px;
+  border-radius: 1em;
+}
+#lostPage span{
+ color: red;
+}
+.restart p{
+  padding: 10px;
+}
+
+#restartBtn{
+  height: 100px;
+  width: 100px;
+  border-radius: 4em;
+  font-size: 1rem;
+  border: none;
+  background-color: red;
+  color: white;
+  margin-top: 2%;
+}
+#restartBtn:hover{
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 5px 20px rgba(145, 92, 182, .7);
+}

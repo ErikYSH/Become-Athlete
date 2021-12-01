@@ -30,7 +30,8 @@ let $aysBox = $("#ays");
 // ======= Hide All page ======= //
 $gamePage.css("display", "none");
 $lostPage.css("display", "none");
-$winPage.css("display", "none");
+// $winPage.css("display", "none");
+$startPage.css("display", "none");
 
 
 // ======= Game ON ======= //
