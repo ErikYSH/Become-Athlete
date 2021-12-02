@@ -20,6 +20,7 @@ let $userInput = $(".name");
 let $userName = $("#userName");
 let $consentBox = $("#consent");
 let $aysBox = $("#ays");
+let avatarImg = $("#avatarImg");
 
 // ============== Hide All page ============== //
 $gamePage.css("display", "none");
@@ -37,11 +38,13 @@ function startingGame() {
   EnergyLvl($energyLvl, 150);
   WorkoutLvl($workoutSession, 80);
   AdvanceLvl($advanceBar, $advanceBarTxt, 450);
-  if (athlete.advanceBar > 50) {
-    CalorieLvl($moreCalorie, 100);
-    EnergyLvl($energyLvl, 100);
-    WorkoutLvl($workoutSession, 100);
-  }
+
+  avatartIntervalID = setInterval(function(){
+    if(athlete.advanceBar>= 50){
+      $("#avatarImg").atrr('src',"https://a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2019/10/1024/512/cinder-the-cat.jpg?ve=1&tl=1")
+    }
+  })
+
 }
 
 // ============== Losing Game ============== //
@@ -72,22 +75,6 @@ function clearValue() {
   clearInterval(preWorkoutIntervalId);
   clearInterval(getFitIntervalId);
   clearInterval(advanceBarIntervalId);
-}
-
-function resetValue() {
-  CalorieLvl($moreCalorie, 400);
-  EnergyLvl($energyLvl, 400);
-  WorkoutLvl($workoutSession, 400);
-  AdvanceLvl($advanceBar, $advanceBarTxt, 200);
-}
-
-function resetGame() {
-  if (this.id === "moreCalorie") {
-    clearInterval(bulkingIntervalId);
-    athlete.bulking = 100;
-    $moreCalorie.css("width", athlete.bulking + "%");
-    CalorieLvl($moreCalorie, 150);
-  }
 }
 
 // ============== Decresing Value Bars ============== //
@@ -152,8 +139,6 @@ function AdvanceLvl(bars, barTxt, speed) {
 }
 
 // AdvanceLvl($advanceBar, 500);
-
-
 
 // ============== Adding Value on Btn Click ============== //
 
